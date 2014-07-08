@@ -11,12 +11,12 @@ var FoodItem = function (name, calories, vegan, glutenFree, citrusFree){
  		 console.log("Ingredients:" + "\n" + "Name:" + this.name + "\n" + "Calories:"  + this.calories + "\n" + "Vegan:" + this.vegan + "\n" + "GlutenFree:" + this.glutenFree + "\n" + "CitrusFree:" + this.citrusFree);
   	}
   }
-console.log(FoodItem);
+// console.log(FoodItem);
 
 
 /// BURRITO
  var tortilla = new FoodItem('tortilla', 100, true, false, true);
-  console.log(tortilla) ;
+  // console.log(tortilla) ;
 
   var beans = new FoodItem('beans', 20, true, true, true);
  	// 	beans.isVegan = function(){
@@ -24,19 +24,22 @@ console.log(FoodItem);
 		// 		console.log("This is Vegan!");
 		// 	}
 		// }
-   console.log(beans); 
+   // console.log(beans); 
 
  var cheese = new FoodItem('cheese', 50, false, false, true);
-  console.log(cheese);
+  // console.log(cheese);
 
 //
 //DRINKS
-// var strawberryPuree = new FoodItem('strawberryPuree', 20,  true, true, true);
-// var tequila = new FoodItem('tequila', 50, true,true,true);
-// var lime = new FoodItem('lime', 10, true, true, false);
+var strawberryPuree = new FoodItem('strawberryPuree', 20,  true, true, true);
+var tequila = new FoodItem('tequila', 50, true,true,true);
+var lime = new FoodItem('lime', 10, true, true, false);
 
 
-
+// GUACAMOLE
+var avacado = new FoodItem('avacado', 50, true, true, true);
+var cilantro = new FoodItem('cilantro', 5, true, true, true);
+// lime also goes here
 
 
 
@@ -50,12 +53,22 @@ var Drink = function (name, description, price, ingredients){
 	this.price = price;
 	this.ingredients = ingredients; 
 		this.toString = function(){
-			console.log("Name: " + this.name  + "\n" + "description: " + this.description +  "\n" + "price: " + "\n" +  this.price  + "\n" + "ingredients: " + this.ingredients)
-		}
-			console.log(Drink);
+			var arrIngredients = ""
+			for (var i = 0 ; i < this.ingredients.length; i++) {
+				
+				if (i === this.ingredients.length-1){ 
+					arrIngredients += this.ingredients[i].name
+				}
+				else{
+				arrIngredients += this.ingredients[i].name + ", "
+				}
+			};
+			console.log ("Name: " + this.name  + "\n" + "description: " + this.description +  "\n" + "price: "+  this.price  + "\n" + "ingredients: " + arrIngredients)
+		} 
+			// console.log(Drink);
 }
 
-// var margarita = new Drink('Strawberry Margarita ', 'tart sweet flavors that balance each other of lime, strawberry and orange ', 9.99, [strawberryPuree, tequila, lime])
+var margarita = new Drink('Strawberry Margarita ', 'tart sweet flavors that balance each other of lime, strawberry and orange ', 9.99, [strawberryPuree, tequila, lime])
 // 		console.log(margarita);
 
 
@@ -66,7 +79,17 @@ var Plate = function (name, description, price, ingredients){
 	this.price = price;
 	this.ingredients = ingredients;
 		this.toString = function(){
-			console.log ("Name: " + this.name  + "\n" + "description: " + this.description +  "\n" + "price: " + "\n" +  this.price  + "\n" + "ingredients: " + this.ingredients)
+			var arrIngredients = ""
+			for (var i = 0 ; i < this.ingredients.length; i++) {
+				
+				if (i === this.ingredients.length-1){ 
+					arrIngredients += this.ingredients[i].name
+				}
+				else{
+				arrIngredients += this.ingredients[i].name + ", "
+				}
+			};
+			console.log ("Name: " + this.name  + "\n" + "description: " + this.description +  "\n" + "price: " +  this.price  + "\n" + "ingredients: " + arrIngredients)
 		} 
 			this.isVegan = function(){
 				if (this.vegan === true)
@@ -80,32 +103,81 @@ var Plate = function (name, description, price, ingredients){
 				if (this.citrusFree === true) 
 					console.log("This is Citrus Free!");
 			}	
-		console.log(Plate);
+		// console.log(Plate);
 };
-var burritoPlate = new Plate('Bean and Cheese Burrito', 'Muy Delicioso- cheesy goodness from heaven!', 3.99, [tortilla, beans,cheese])
+var burritoPlate = new Plate('Bean and Cheese Burrito', 'Muy Delicioso- cheesy goodness from heaven!', 3.99, [tortilla, beans,cheese]);
 
-// var Order = function(plates){
-// 	this.plates = plates;
-// 		this.toString = function(){
+var guacamolePlate = new Plate('Authentic Guacamole', 'Best guac on the planet', 1.99, [avacado, cilantro, lime]);
 
-// 		}
-// }
+// ORDER --------
 
-// var Menu = function(plates){
-// 	this.plates = plates;
-// 		this.toString = function(){
+var Order = function(plates){
+	this.plates = plates;
+		this.toString = function(){
+			var arrPlates = ""
+			for (var i = 0 ; i < this.plates.length; i++) {
+				
+				if (i === this.plates.length-1){ 
+					arrPlates += this.plates[i].name
+				}
+				else{
+				arrPlates += this.plates[i].name + ", "
+				}
+			};
+			console.log(arrPlates);
 
-// 		}
-// }
+		}
+};
 
-// var Restaurant = function(name, description, menu){
-//   	this.name = name;
-//   	this.description = description;
-//   	this.menu = menu;
-//   		this.toString = function(){
+var myOrder = new Order([burritoPlate, margarita])
 
-//   		}
-// }
+
+ // MENU ----------
+
+var Menu = function(plates){
+	this.plates = plates;
+	this.toString = function(){
+			var arrPlates = ""
+			for (var i = 0 ; i < this.plates.length; i++) {
+				
+				if (i === this.plates.length-1){ 
+					arrPlates += this.plates[i].name
+				}
+				else{
+				arrPlates += this.plates[i].name + ", "
+				}
+			};
+			console.log(arrPlates);
+
+		}
+			
+};
+
+var theMenu = new Menu([burritoPlate, guacamolePlate, margarita])
+
+// RESTAURANT ----------
+
+var Restaurant = function(name, description, menu){
+  	this.name = name;
+  	this.description = description;
+  	this.menu = menu;
+  		this.toString = function(){
+  			var arrMenu = ""
+			for (var i = 0 ; i < this.menu.length; i++) {
+				
+				if (i === this.menu.length-1){ 
+					arrMenu += this.menu[i].name
+				}
+				else{
+				arrMenu += this.menu[i].name + ", "
+				}
+			};
+  			console.log(this.name, ",", this.description, ",", "Menu:", arrMenu )
+  		}
+}
+
+
+var southoftheborder = new Restaurant("South of the Border", "A Mexican Restaurante", arrMenu)
 
 // var Customer = function(dietaryPreference){
 // 	this.dietaryPreference = dietaryPreference;
