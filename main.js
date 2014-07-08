@@ -162,22 +162,24 @@ var Restaurant = function(name, description, menu){
   	this.description = description;
   	this.menu = menu;
   		this.toString = function(){
+  			// console.log("test",arrMenu)
   			var arrMenu = ""
-			for (var i = 0 ; i < this.menu.length; i++) {
+			for (var i = 0 ; i < this.menu.plates.length; i++) {
 				
-				if (i === this.menu.length-1){ 
-					arrMenu += this.menu[i].name
+				if (i === this.menu.plates.length-1){ 
+					arrMenu += this.menu.plates[i].name
 				}
 				else{
-				arrMenu += this.menu[i].name + ", "
+				arrMenu += this.menu.plates[i].name + ", "
 				}
+
 			};
   			console.log(this.name, ",", this.description, ",", "Menu:", arrMenu )
   		}
 }
 
 
-var southoftheborder = new Restaurant("South of the Border", "A Mexican Restaurante", arrMenu)
+var southoftheborder = new Restaurant("South of the Border", "A Mexican Restaurante", theMenu)
 
 // var Customer = function(dietaryPreference){
 // 	this.dietaryPreference = dietaryPreference;
