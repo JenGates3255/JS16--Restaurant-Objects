@@ -1,17 +1,122 @@
+
+// Part 1
+
 var FoodItem = function (name, calories, vegan, glutenFree, citrusFree){
   	this.name = name ;
   	this.calories = calories;
   	this.vegan = vegan;
   	this.glutenFree = glutenFree;
   	this.citrusFree = citrusFree;
-  	this.toString = function(){
- 		console.log("Name:" + this.name + "\n" + "Calories:"  + this.calories + "\n" + "Vegan:" + this.vegan + "\n" + "GlutenFree:" + this.glutenFree + "\n" + "CitrusFree:" + this.citrusFree);
+  	 this.toString = function(){
+ 		 console.log("Ingredients:" + "\n" + "Name:" + this.name + "\n" + "Calories:"  + this.calories + "\n" + "Vegan:" + this.vegan + "\n" + "GlutenFree:" + this.glutenFree + "\n" + "CitrusFree:" + this.citrusFree);
   	}
   }
 console.log(FoodItem);
- 
+
+
+/// BURRITO
  var tortilla = new FoodItem('tortilla', 100, true, false, true);
- console.log(tortilla) 
+  console.log(tortilla) ;
+
+  var beans = new FoodItem('beans', 20, true, true, true);
+ 	// 	beans.isVegan = function(){
+		// 		if (this.vegan === true){
+		// 		console.log("This is Vegan!");
+		// 	}
+		// }
+   console.log(beans); 
+
+ var cheese = new FoodItem('cheese', 50, false, false, true);
+  console.log(cheese);
+
+//
+//DRINKS
+// var strawberryPuree = new FoodItem('strawberryPuree', 20,  true, true, true);
+// var tequila = new FoodItem('tequila', 50, true,true,true);
+// var lime = new FoodItem('lime', 10, true, true, false);
+
+
+
+
+
+
+
+// Part 2
+// 
+ 
+var Drink = function (name, description, price, ingredients){
+	this.name = name;
+	this.description = description;
+	this.price = price;
+	this.ingredients = ingredients; 
+		this.toString = function(){
+			console.log("Name: " + this.name  + "\n" + "description: " + this.description +  "\n" + "price: " + "\n" +  this.price  + "\n" + "ingredients: " + this.ingredients)
+		}
+			console.log(Drink);
+}
+
+// var margarita = new Drink('Strawberry Margarita ', 'tart sweet flavors that balance each other of lime, strawberry and orange ', 9.99, [strawberryPuree, tequila, lime])
+// 		console.log(margarita);
+
+
+//////////////////////////
+var Plate = function (name, description, price, ingredients){
+	this.name = name;
+	this.description = description;
+	this.price = price;
+	this.ingredients = ingredients;
+		this.toString = function(){
+			console.log ("Name: " + this.name  + "\n" + "description: " + this.description +  "\n" + "price: " + "\n" +  this.price  + "\n" + "ingredients: " + this.ingredients)
+		} 
+			this.isVegan = function(){
+				if (this.vegan === true)
+				console.log("This is Vegan!");
+				}
+			this.isGlutenFree = function(){
+				if (this.glutenFree === true)
+					console.log("This is Gluten Free!");
+				}
+			this.isCitrusFree = function(){
+				if (this.citrusFree === true) 
+					console.log("This is Citrus Free!");
+			}	
+		console.log(Plate);
+};
+var burritoPlate = new Plate('Bean and Cheese Burrito', 'Muy Delicioso- cheesy goodness from heaven!', 3.99, [tortilla, beans,cheese])
+
+// var Order = function(plates){
+// 	this.plates = plates;
+// 		this.toString = function(){
+
+// 		}
+// }
+
+// var Menu = function(plates){
+// 	this.plates = plates;
+// 		this.toString = function(){
+
+// 		}
+// }
+
+// var Restaurant = function(name, description, menu){
+//   	this.name = name;
+//   	this.description = description;
+//   	this.menu = menu;
+//   		this.toString = function(){
+
+//   		}
+// }
+
+// var Customer = function(dietaryPreference){
+// 	this.dietaryPreference = dietaryPreference;
+// 		this.toString = function(){
+
+// 		}
+// }
+
+
+
+
 
 
 
